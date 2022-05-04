@@ -10,8 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     // MARK: - Variables
-    
-    var bmiResult = ""
+    var calculatorBrain = BMIBrain()
 
     // MARK: - Outlets
     
@@ -30,38 +29,31 @@ class MainViewController: UIViewController {
     
     @IBAction func heightSliderChange(_ sender: UISlider) {
         
-        let formattedValue = String(format: "%.2f", sender.value)
-        let finalText = "\(formattedValue)m"
-        heightLabel.text = finalText
+        let height = String(format: "%.2f", sender.value)
+        heightLabel.text = "\(height)m"
     }
     
     @IBAction func weightSliderChange(_ sender: UISlider) {
         
-        let formattedValue = String(format: "%.1f", sender.value)
-        let finalText = "\(formattedValue)Kg"
-        weightLabel.text = finalText
+        let weight = String(format: "%.1f", sender.value)
+        weightLabel.text = "\(weight)Kg"
 
     }
     
     @IBAction func calculateBMI(_ sender: UIButton) {
-        let result = calculations(height: heightSlider.value, weight: weightSlider.value)
-        let formattedResult = String(format: "%.1f", result)
-        bmiResult = formattedResult
         
+        let height = heightSlider.value
+        let weight = weightSlider.value
+        
+        calculatorBrain.calculations(height: height, weight: weight)
         performSegue(withIdentifier: "showResults", sender: self)
-    }
-    
-    func calculations(height: Float, weight: Float) -> Float {
-        
-        let heightCalculations = pow(height, 2)
-        let finalCalculations = weight / heightCalculations
-        return finalCalculations
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showResults" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.bmi = bmiResult
+            destinationVC.bmi = calculatorBrain.getBMIValue()
+            destinationVC.advice = calculatorBrain.bmi?.advice
         }
     }
 }

@@ -161,7 +161,7 @@
                         <outlet property="heightSlider" destination="ceG-Uy-gWK" id="mJ5-Qx-Hhx"/>
                         <outlet property="weightLabel" destination="lrq-PO-Ign" id="zBd-kT-Pkm"/>
                         <outlet property="weightSlider" destination="fYw-Ur-WJ9" id="GLb-Hi-fNW"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="showResults" id="JVI-a4-q0y"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showResults" id="JVI-a4-q0y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i36-mB-pnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -173,14 +173,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ResultViewController" customModule="BMICalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blobBG" translatesAutoresizingMaskIntoConstraints="NO" id="Csu-gI-bJg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTf-6Q-Ynb">
-                                <rect key="frame" x="57" y="273" width="300" height="350"/>
+                                <rect key="frame" x="57" y="246" width="300" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu resultado:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjn-A6-mzE">
                                         <rect key="frame" x="63" y="60" width="174.5" height="50"/>
@@ -197,10 +197,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aqui va el mensaje!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxj-6a-RuW">
-                                        <rect key="frame" x="64" y="190" width="172.5" height="50"/>
-                                        <fontDescription key="fontDescription" name="NotoNastaliqUrdu" family="Noto Nastaliq Urdu" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dxj-6a-RuW">
+                                        <rect key="frame" x="0.0" y="194" width="300" height="42.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="5eh-zT-VRP"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Aqui va el mensaje!">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name="NotoNastaliqUrdu"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjf-ps-267">
@@ -255,6 +264,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="XFs-Wc-Jwv"/>
                     <connections>
+                        <outlet property="adviceLabel" destination="Dxj-6a-RuW" id="CEP-du-MOi"/>
                         <outlet property="resultLabel" destination="3dh-lX-p3P" id="ODI-55-GTQ"/>
                     </connections>
                 </viewController>
