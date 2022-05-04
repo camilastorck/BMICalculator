@@ -25,9 +25,9 @@ struct BMIBrain {
         } else if calculations < 24.99 {
             bmi = BMI(value: calculations, advice: "Tu IMC es normal!")
         } else if calculations < 30 {
-            bmi = BMI(value: calculations, advice: "Tu IMC es alto, estás en a categoría sobrepeso.")
+            bmi = BMI(value: calculations, advice: "Tu IMC es alto, estás en la categoría sobrepeso.")
         } else {
-            bmi = BMI(value: calculations, advice: "Tu IMC es muy alto, estás en a categoría obesidad.")
+            bmi = BMI(value: calculations, advice: "Tu IMC es muy alto, estás en la categoría obesidad.")
         }
         
     }
